@@ -1,0 +1,51 @@
+//
+//  ContentView.swift
+//  ios-dictionary-app
+//
+//  Created by Pauline Erika Bihler on 14.05.25.
+//
+
+import SwiftUI
+
+
+struct ContentView: View {
+    
+    /*
+    @StateObject private var viewModel = DictionaryViewModel()
+    @State private var searchText = ""
+     */
+    @State private var searchText = ""
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                TextField("Search a word", text: $searchText)
+                               .padding()
+                               .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+        }
+        .navigationTitle("Dictionary")
+    }
+}
+
+
+#Preview {
+    ContentView()
+}
+
+/*
+ Dictionary App:
+    - Search Bar
+        - Search words
+ 
+    - Words:
+        - Seach words
+        - Words should show: Definition, Phonetic, Text, Audio, Origin
+ 
+    - History:
+        - Shows word searched
+        - Words need to be clickable
+ 
+Added Dependencies: Moya: for API; Realm: for storage
+
+ */
