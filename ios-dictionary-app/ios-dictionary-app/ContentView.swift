@@ -10,17 +10,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-    /*
     @StateObject private var viewModel = DictionaryViewModel()
     @State private var searchText = ""
-     */
-    @State private var searchText = ""
+    
     
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Search a word", text: $searchText)
-                               .padding()
+                TextField("Search a word", text: $searchText, onCommit: {
+                    viewModel.searchWord(searchText)
+                })
+                    .padding()
                                .textFieldStyle(RoundedBorderTextFieldStyle())
             }
         }

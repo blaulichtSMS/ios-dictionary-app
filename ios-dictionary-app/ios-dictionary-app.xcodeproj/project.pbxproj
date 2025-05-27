@@ -9,7 +9,21 @@
 /* Begin PBXBuildFile section */
 		D8F1FCDE2DD62EC30054C110 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D8F1FCDD2DD62EC30054C110 /* Realm */; };
 		D8F1FCE02DD62EC30054C110 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D8F1FCDF2DD62EC30054C110 /* RealmSwift */; };
+		D8F1FCF52DE5A1700054C110 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D8F1FCF42DE5A1700054C110 /* Moya */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8F1FCF72DE5A1BE0054C110 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D8F1FCC42DD4DAA10054C110 /* ios-dictionary-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-dictionary-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +44,7 @@
 			files = (
 				D8F1FCE02DD62EC30054C110 /* RealmSwift in Frameworks */,
 				D8F1FCDE2DD62EC30054C110 /* Realm in Frameworks */,
+				D8F1FCF52DE5A1700054C110 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				D8F1FCC62DD4DAA10054C110 /* ios-dictionary-app */,
+				D8F1FCF32DE5A1700054C110 /* Frameworks */,
 				D8F1FCC52DD4DAA10054C110 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +68,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D8F1FCF32DE5A1700054C110 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -62,6 +85,7 @@
 				D8F1FCC02DD4DAA10054C110 /* Sources */,
 				D8F1FCC12DD4DAA10054C110 /* Frameworks */,
 				D8F1FCC22DD4DAA10054C110 /* Resources */,
+				D8F1FCF72DE5A1BE0054C110 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -74,6 +98,7 @@
 			packageProductDependencies = (
 				D8F1FCDD2DD62EC30054C110 /* Realm */,
 				D8F1FCDF2DD62EC30054C110 /* RealmSwift */,
+				D8F1FCF42DE5A1700054C110 /* Moya */,
 			);
 			productName = "ios-dictionary-app";
 			productReference = D8F1FCC42DD4DAA10054C110 /* ios-dictionary-app.app */;
@@ -367,6 +392,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D8F1FCDC2DD62EC30054C110 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		D8F1FCF42DE5A1700054C110 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8F1FCDB2DD62E930054C110 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
