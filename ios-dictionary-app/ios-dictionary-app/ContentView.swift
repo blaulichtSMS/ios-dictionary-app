@@ -21,7 +21,16 @@ struct ContentView: View {
                     viewModel.searchWord(searchText)
                 })
                     .padding()
-                               .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                List(viewModel.searchHistory, id: \.id) { history in
+                                    Text(history.word)
+                                        .onTapGesture {
+                                            viewModel.searchWord(history.word)
+                                        }
+                                }
+                
+               
             }
         }
         .navigationTitle("Dictionary")
