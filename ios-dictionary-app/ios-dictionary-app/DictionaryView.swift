@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct DictionaryView: View {
     let wordDetails: WordDetail
 
@@ -23,8 +24,13 @@ struct DictionaryView: View {
                 Text("Origin: \(origin)")
             }
 
-
+            ForEach(wordDetails.meanings, id: \.partOfSpeech) { meaning in
+                Text("Part of Speech: \(meaning.partOfSpeech)")
+                    .font(.headline)
+            }
+ 
         }
         .padding()
     }
 }
+

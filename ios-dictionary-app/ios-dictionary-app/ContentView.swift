@@ -30,7 +30,17 @@ struct ContentView: View {
                                         }
                                 }
                 
-               
+                if viewModel.isLoading {
+                                    ProgressView("Loading...")
+                                } else if let error = viewModel.errorMessage {
+                                    Text("Error: \(error)").foregroundColor(.red)
+                                } else if
+                                    let details = viewModel.wordDetails {
+                                    DictionaryView(wordDetails: details)
+                                    //Text(details.word)
+                                }
+                 
+
             }
         }
         .navigationTitle("Dictionary")

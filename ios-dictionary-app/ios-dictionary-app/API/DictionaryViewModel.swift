@@ -13,15 +13,19 @@ class DictionaryViewModel: ObservableObject {
     
     @Published var searchHistory: [SearchHistory] = []
     @Published var wordDetails: WordDetail?
+    @Published var isLoading = false
+    @Published var errorMessage: String?
+
     
     
     private let provider = dictionaryProvider
     let realm = try! Realm()
     
-    
+    /*
     init() {
-        
+        loadHistory()
       }
+     */
     
     
     // Search for a word using the Dictionary API
@@ -36,21 +40,28 @@ class DictionaryViewModel: ObservableObject {
             switch result {
             case let .success(moyaResponse):
                 let data = moyaResponse.data
-                let statusCode = moyaResponse.statusCode
+                let _ = moyaResponse.statusCode
+                //let statusCode = moyaResponse.statusCode
                 let decoded = try? JSONDecoder().decode(WordDetail.self, from: data)
                 
                 DispatchQueue.main.async {
+                    self.isLoading = false
                     self.wordDetails = decoded
                 }
                 
+            //case .failure(_):
             case let .failure(error):
                 // this means there was a network failure - either the request
                 // wasn't sent (connectivity), or no response was received (server
                 // timed out).  If the server responds with a 4xx or 5xx error, that
                 // will be sent as a ".success"-ful response.
                 print("Error decoding JSON: \(error)")
+                /*
+                DispatchQueue.main.async {
+                        self.errorMessage = "Failed to decode response"
+                    }
+                 */
                 
-            
             }
         }
     }
@@ -67,9 +78,19 @@ class DictionaryViewModel: ObservableObject {
     }
     
     // Load history from Realm
+    /*
     func loadHistory() {
         let results = realm.objects(SearchHistory.self)
         searchHistory = Array(results)
     }
+     
+     func loadHistory() {
+         let results = realm.objects(SearchHistory.self)
+            .sorted(byKeyPath: "dateSearched", ascending: false)
+         searchHistory = Array(results)
+     }
+     */
+    
+   
 
 }
