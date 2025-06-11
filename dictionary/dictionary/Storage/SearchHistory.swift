@@ -1,18 +1,15 @@
 //
 //  SearchHistory.swift
-//  ios-dictionary-app
+//  dictionary
 //
-//  Created by Pauline Erika Bihler on 15.05.25.
+//  Created by Pauline Erika Bihler on 10.06.25.
 //
 
 import Foundation
 import RealmSwift
-
 
 class SearchHistory: Object {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var word: String
     @Persisted var dateSearched: Date = Date()
 }
-
-

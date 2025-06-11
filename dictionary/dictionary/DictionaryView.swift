@@ -1,24 +1,22 @@
 //
 //  DictionaryView.swift
-//  ios-dictionary-app
+//  dictionary
 //
-//  Created by Pauline Erika Bihler on 15.05.25.
+//  Created by Pauline Erika Bihler on 10.06.25.
 //
 
 import SwiftUI
+import AVFoundation
 
 
 struct DictionaryView: View {
     let wordDetails: [WordDetail]
-    
-    
+
     var body: some View {
         List(wordDetails, id: \.word) { detail in
             VStack(alignment: .leading) {
                 Text(detail.word).font(.largeTitle).bold()
-                Text(detail.phonetic ?? "No phonetics available").italic()
-                
-                
+                Text(detail.origin ?? "No origin available").italic()
                 
                 ForEach(detail.meanings, id: \.partOfSpeech) { meaning in
                     Text(meaning.partOfSpeech.capitalized).bold()
@@ -27,13 +25,12 @@ struct DictionaryView: View {
                     }
                 }
                 
-                
+              
+                }
             }
-            .padding()
         }
     }
-}
-
     
-
+   
+     
 
