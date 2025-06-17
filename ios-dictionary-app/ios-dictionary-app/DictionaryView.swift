@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 
 struct DictionaryView: View {
@@ -26,13 +27,23 @@ struct DictionaryView: View {
                         Text("• \(definition.definition)")
                     }
                 }
-                
+                if let audio = detail.phonetics?.first(where: { $0.audio != nil })?.audio {
+                    Button("Play Audio") {
+                       playAudio(urlString: audio)
+                                  }
+                              }
                 
             }
             .padding()
         }
     }
-}
+    private func playAudio(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        let player = AVPlayer(url: url)
+        player.play()
+    }
+  }
+
 
     
 
