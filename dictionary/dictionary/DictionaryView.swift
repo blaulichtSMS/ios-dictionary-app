@@ -25,11 +25,27 @@ struct DictionaryView: View {
                     }
                 }
                 
-              
+                
+                Button("Play Audio") {
+                   playAudio(urlString: audio)
+                              }
+                
+                if let audio = detail.phonetics?.first(where: { $0.audio != nil })?.audio {
+                    Button("Play Audio") {
+                       playAudio(urlString: audio)
+                                  }
+                              }
+                          }
+                      }
+                  }
+                  
+                  private func playAudio(urlString: String) {
+                      guard let url = URL(string: urlString) else { return }
+                      let player = AVPlayer(url: url)
+                      player.play()
+                  }
                 }
-            }
-        }
-    }
+            
     
    
      
